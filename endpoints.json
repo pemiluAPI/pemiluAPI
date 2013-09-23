@@ -1,0 +1,14 @@
+{
+    "endpoints": [
+        {
+            "name": "Randomizer",
+            "desc": "This endpoint allows you generate random integers.",
+            "docs": "http://example.com"
+        },
+        {
+            "name": "Lorem Ipsum",
+            "desc": "This endpoint allows you generate the Lorem Ipsum text.",
+            "docs": "http://example.com"
+        }
+    ]
+}
