@@ -2,3 +2,10 @@
 composer.phar
 composer.lock
 .DS_Store
+
+# Ignores capistrano files
+Capfile
+Gemfile
+Gemfile.lock
+/config/deploy
+/config/deploy.rb
