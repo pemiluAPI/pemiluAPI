@@ -2,11 +2,13 @@
     "endpoints": [
         {
             "name": "Randomizer",
+            "slug": "randomizer",
             "desc": "This endpoint allows you generate random integers.",
             "docs": "http://example.com"
         },
         {
             "name": "Lorem Ipsum",
+            "slug": "lorem-ipsum",
             "desc": "This endpoint allows you generate the Lorem Ipsum text.",
             "docs": "http://example.com"
         }
