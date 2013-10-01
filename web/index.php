@@ -17,4 +17,17 @@ $app->get('/endpoints', function () use ($app) {
     return $app->json($output);
 });
 
+$app->get('/endpoints/{slug}', function ($slug) use ($app) {
+
+    $endpoints = json_decode(file_get_contents(__DIR__.'/../endpoints.json'), true);
+
+    $endpoint = array_filter($endpoints['endpoints'], function($endpoint) use ($slug) {
+        return $endpoint['slug'] == $slug;
+    });
+
+    $output = array('data' => $endpoint);
+
+    return $app->json($output);
+});
+
 $app->run();
