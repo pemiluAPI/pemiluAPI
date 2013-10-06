@@ -16,17 +16,44 @@ $app->get('/', function () use ($app) {
     return $app->json($output, 404);
 });
 
-$app->get('/endpoints', function () use ($app) {
+$app->get('/endpoints', function (Request $request) use ($app) {
+    // Read configuration
+    $config = json_decode(file_get_contents(__DIR__.'/../pemiluapi.json'), true);
 
-    $endpoints = json_decode(file_get_contents(__DIR__.'/../endpoints.json'), true);
-    $endpoints = $endpoints['endpoints'];
+    // Try authenticate apiKey
+    $client = new Client($config['host'], array(
+        'request.options' => array(
+            'query' => array('apiKey' => $request->get('apiKey')),
+            'exceptions' => false
+        )
+    ));
+    $response = $client->get('/api/authenticate')->send();
 
-    $output = array(
-        'count' => count($endpoints),
-        'data' => $endpoints
-    );
+    // Return based on status code
+    switch ($response->getStatusCode()) {
+        case 401:
+            $output = array(
+                'error' => array(
+                    'type' => 'invalid_request_error'
+                )
+            );
 
-    return $app->json($output);
+            return $app->json($output, 401);
+            break;
+
+        case 200:
+            $endpoints = json_decode(file_get_contents(__DIR__.'/../endpoints.json'), true);
+            $endpoints = $endpoints['endpoints'];
+
+            $output = array(
+                'count' => count($endpoints),
+                'data' => $endpoints
+            );
+
+            return $app->json($output);
+            break;
+     };
+
 });
 
 $app->get('/endpoints/{slug}', function ($slug) use ($app) {
