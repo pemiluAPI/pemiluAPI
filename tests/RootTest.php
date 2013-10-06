@@ -2,7 +2,7 @@
 
 use Silex\WebTestCase;
 
-class RootRouteTest extends WebTestCase
+class RootTest extends WebTestCase
 {
 
     public function createApplication()
@@ -14,7 +14,7 @@ class RootRouteTest extends WebTestCase
         return $app;
     }
 
-    public function testRootRoute()
+    public function testRoot()
     {
         $client = $this->createClient();
         $client->request('GET', '/');
