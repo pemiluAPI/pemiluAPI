@@ -87,9 +87,19 @@ $app->get('/endpoints/{slug}', function (Request $request, $slug) use ($app) {
                 return $endpoint['slug'] == $slug;
             });
 
-            $output = array('data' => $endpoint);
+            if (empty($endpoint)) {
+                $statusCode = 404;
+                $output = array(
+                    'error' => array(
+                        'type' => 'data_not_found'
+                    )
+                );
+            } else {
+                $statusCode = 200;
+                $output = array('data' => $endpoint);
+            }
 
-            return $app->json($output);
+            return $app->json($output, $statusCode);
             break;
      };
 });
