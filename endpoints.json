@@ -1,16 +1,23 @@
 {
-    "endpoints": [
-        {
-            "name": "Randomizer",
-            "slug": "randomizer",
-            "desc": "This endpoint allows you generate random integers.",
-            "docs": "http://example.com"
+    "endpoints": {
+        "pemilu-news": {
+            "name": "Pemilu News",
+            "desc": "Latest updates news related to Pemilu",
+            "docs": "http://docs.pemilunews.apiary.io/",
+            "base": "http://pemilunews.apiary.io"
         },
-        {
+        "randomizer": {
+            "name": "Randomizer",
+            "desc": "This endpoint allows you generate random integers.",
+            "docs": "http://example.com",
+            "base": "http://api.example.com"
+        },
+        "lorem-ipsum": {
             "name": "Lorem Ipsum",
             "slug": "lorem-ipsum",
             "desc": "This endpoint allows you generate the Lorem Ipsum text.",
-            "docs": "http://example.com"
+            "docs": "http://example.com",
+            "base": "http://api.example.com"
         }
-    ]
+    }
 }
