@@ -1,5 +1,8 @@
 <?php
 
+use Guzzle\Http\Client;
+use Symfony\Component\HttpFoundation\Request;
+
 $app = new Silex\Application();
 
 $app->get('/', function () use ($app) {
