@@ -118,54 +118,7 @@ $app->get('/endpoints', function (Request $request) use ($app) {
 
 });
 
-$app->get('/endpoints/{slug}', function (Request $request, $slug) use ($app) {
-    // Read configuration
-    $config = json_decode(file_get_contents(__DIR__.'/../pemiluapi.json'), true);
-
-    // Try authenticate apiKey
-    $client = new Client($config['host'], array(
-        'request.options' => array(
-            'query' => array('apiKey' => $request->get('apiKey')),
-            'exceptions' => false
-        )
-    ));
-    $response = $client->get('/api/authenticate')->send();
-
-    // Return based on status code
-    switch ($response->getStatusCode()) {
-        case 401:
-            $output = array(
-                'error' => array(
-                    'type' => 'invalid_request_error'
-                )
-            );
-
-            return $app->json($output, 401);
-            break;
-
-        case 200:
-            $endpoints = json_decode(file_get_contents(__DIR__.'/../endpoints.json'), true);
-            $endpoint = array_filter($endpoints['endpoints'], function($endpoint) use ($slug) {
-                return $endpoint['slug'] == $slug;
-            });
-
-            if (empty($endpoint)) {
-                $statusCode = 404;
-                $output = array(
-                    'error' => array(
-                        'type' => 'data_not_found'
-                    )
-                );
-            } else {
-                $statusCode = 200;
-                $output = array('data' => $endpoint);
-            }
-
-            return $app->json($output, $statusCode);
-            break;
-     };
-});
-
-$app->mount('/status', include 'status.php');
+$app->mount('/endpoints', include 'controllers/endpoints.php');
+$app->mount('/status', include 'controllers/status.php');
 
 return $app;

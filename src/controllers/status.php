@@ -3,9 +3,9 @@
 use Guzzle\Http\Client;
 use Symfony\Component\HttpFoundation\Request;
 
-$status = $app['controllers_factory'];
+$statusController = $app['controllers_factory'];
 
-$status->get('/', function (Request $request) use ($app, $config) {
+$statusController->get('/', function (Request $request) use ($app, $config) {
     // Try authenticate apiKey
     $client = new Client($config['host'], array(
         'request.options' => array(
@@ -49,5 +49,5 @@ $status->get('/', function (Request $request) use ($app, $config) {
      } ;
 });
 
-return $status;
+return $statusController;
 
