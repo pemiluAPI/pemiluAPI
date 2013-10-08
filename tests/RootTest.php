@@ -4,7 +4,6 @@ use Silex\WebTestCase;
 
 class RootTest extends WebTestCase
 {
-
     public function createApplication()
     {
         $app = require __DIR__ . '/../src/app.php';
@@ -21,8 +20,7 @@ class RootTest extends WebTestCase
         $response = $client->getResponse();
         $content = json_decode($response->getContent());
 
-        $this->assertTrue($response->isNotFound());
+        $this->assertEquals($response->getStatusCode(), 404);
         $this->assertEquals($content->error->type, 'invalid_request_error');
     }
-
 }
