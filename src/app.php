@@ -1,8 +1,5 @@
 <?php
 
-use Guzzle\Http\Client;
-use Symfony\Component\HttpFoundation\Request;
-
 $app = new Silex\Application();
 
 $app->get('/', function () use ($app) {
@@ -169,51 +166,6 @@ $app->get('/endpoints/{slug}', function (Request $request, $slug) use ($app) {
      };
 });
 
-$app->get('/status', function (Request $request) use ($app) {
-    // Read configuration
-    $config = json_decode(file_get_contents(__DIR__.'/../pemiluapi.json'), true);
-
-    // Try authenticate apiKey
-    $client = new Client($config['host'], array(
-        'request.options' => array(
-            'query' => array('apiKey' => $request->get('apiKey')),
-            'exceptions' => false
-        )
-    ));
-    $response = $client->get('/api/authenticate')->send();
-
-    // Return based on status code
-    switch ($response->getStatusCode()) {
-        case 401:
-            $output = array(
-                'error' => array(
-                    'type' => 'invalid_request_error'
-                )
-            );
-
-            return $app->json($output, 401);
-            break;
-
-        case 200:
-            $client = new Client($config['host'], array(
-                'request.options' => array(
-                    'query' => array('apiKey' => $request->get('apiKey')),
-                    'exceptions' => false
-                )
-            ));
-
-            $response = $client->get('/api/application')->send()->json();
-
-            $output = array(
-                'data' => array(
-                    'pemiluAPIVersion' => 1,
-                    'applicationName' => $response['data']['title']
-                )
-            );
-
-            return $app->json($output, 200);
-            break;
-     } ;
-});
+$app->mount('/status', include 'status.php');
 
 return $app;
