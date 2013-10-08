@@ -2,6 +2,7 @@
 composer.phar
 composer.lock
 .DS_Store
+/tests/report
 
 # Ignores capistrano files
 Capfile
