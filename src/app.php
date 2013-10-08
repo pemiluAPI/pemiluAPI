@@ -56,7 +56,12 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         ));
 
         // Call the endpoint
-        $response = $client->createRequest($request->getMethod(), '/api/' . $resource)->send();
+        $response = $client->createRequest(
+            $request->getMethod(), // method
+            '/api/' . $resource, // uri
+            $request->headers->all(), // headers
+            $request->getContent() // body
+        )->send();
 
         // Prepare output
         switch ($response->getStatusCode()) {
