@@ -25,6 +25,25 @@ class EndpointsTest extends WebTestCase
         $this->assertEquals($response->getStatusCode(), 200);
     }
 
+    public function testSaveLink()
+    {
+        $client = $this->createClient();
+        $client->followRedirects();
+        $client->request(
+            'POST',
+            'pemilu-news/api/links',
+            array('apiKey' => '06ec082d057daa3d310b27483cc3962e'),
+            array(),
+            array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'),
+            'title=Save a link&url=http://example.com'
+        );
+        $response = $client->getResponse();
+        $content = json_decode($response->getContent());
+
+        $this->assertEquals($response->getStatusCode(), 201);
+    }
+    // eo Testing the Endpoint interaction
+
     public function testListAvailableEndpoints()
     {
         $client = $this->createClient();
