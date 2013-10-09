@@ -4,7 +4,7 @@
             "name": "Pemilu News",
             "desc": "Latest updates news related to Pemilu",
             "docs": "http://docs.pemilunews.apiary.io/",
-            "base": "http://pemilunews.apiary.io"
+            "base": "http://pemilu-news.herokuapp.com"
         },
         "randomizer": {
             "name": "Randomizer",
