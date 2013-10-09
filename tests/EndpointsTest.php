@@ -110,5 +110,21 @@ class EndpointsTest extends WebTestCase
 
         $this->assertEquals($response->getStatusCode(), 401);
         $this->assertEquals($content->error->type, 'invalid_request_error');
+
+        // POST /pemilu-news/api/links?{apiKey}
+        $client = $this->createClient();
+        $client->followRedirects();
+        $client->request(
+            'POST',
+            'pemilu-news/api/links',
+            array('apiKey' => 'insertinvalidkeyhere'),
+            array(),
+            array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'),
+            'title=Save a link&url=http://example.com'
+        );
+        $response = $client->getResponse();
+        $content = json_decode($response->getContent());
+
+        $this->assertEquals($response->getStatusCode(), 401);
     }
 }
