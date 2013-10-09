@@ -59,7 +59,7 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         $response = $client->createRequest(
             $request->getMethod(), // method
             '/api/' . $resource, // uri
-            $request->headers->all(), // headers
+            array('Content-Type' => 'application/x-www-form-urlencoded'), // headers
             $request->getContent() // body
         )->send();
 
