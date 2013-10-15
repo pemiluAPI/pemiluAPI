@@ -2,6 +2,11 @@
 
 use Guzzle\Http\Client;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Debug\ExceptionHandler;
+
+// Convert errors to exceptions
+// http://silex.sensiolabs.org/doc/cookbook/error_handler.html
+ExceptionHandler::register(false);
 
 $app = new Silex\Application();
 
@@ -56,15 +61,35 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         ));
 
         // Call the endpoint
-        $response = $client->createRequest(
+        $client = $client->createRequest(
             $request->getMethod(), // method
             '/api/' . $resource, // uri
             array('Content-Type' => 'application/x-www-form-urlencoded'), // headers
             $request->getContent() // body
-        )->send();
+        );
+
+        try {
+            $response = $client->send();
+            $statusCode = $response->getStatusCode();
+        } catch (Guzzle\Http\Exception\CurlException $e) {
+            $statusCode = 500;
+            $output = array(
+                'error' => array(
+                    'type' => 'connection_timed_out'
+                )
+            );
+        }
 
         // Prepare output
-        switch ($response->getStatusCode()) {
+        switch ($statusCode) {
+            case 500:
+                $output = array(
+                    'error' => array(
+                        'type' => 'connection_timed_out'
+                    )
+                );
+                break;
+
             case 404:
                 $output = array(
                     'error' => array(
@@ -79,7 +104,7 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 break;
          };
 
-        return $app->json($output, $response->getStatusCode());
+        return $app->json($output, $statusCode);
 
     })->method('GET|POST');// Only match GET or POST
 

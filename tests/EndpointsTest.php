@@ -79,6 +79,19 @@ class EndpointsTest extends WebTestCase
         $this->assertEquals($content->error->type, 'data_not_found');
     }
 
+    public function testExceptionReturn()
+    {
+        // GET /pemilu-news/api/foo?{apiKey}
+        $client = $this->createClient();
+        $client->followRedirects();
+        $client->request('GET', 'pemilu-news/api/foo', array('apiKey' => '06ec082d057daa3d310b27483cc3962e'));
+        $response = $client->getResponse();
+        $content = json_decode($response->getContent());
+
+        $this->assertEquals($response->getStatusCode(), 500);
+        $this->assertEquals($content->error->type, 'connection_timed_out');
+    }
+
     public function testInvalidApiKey()
     {
         // GET /endpoints/{slug}/?{apiKey}
