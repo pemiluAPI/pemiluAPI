@@ -14,7 +14,6 @@
         },
         "lorem-ipsum": {
             "name": "Lorem Ipsum",
-            "slug": "lorem-ipsum",
             "desc": "This endpoint allows you generate the Lorem Ipsum text.",
             "docs": "http://example.com",
             "base": "http://api.example.com"
