@@ -4,14 +4,81 @@
 
 ## Installation
 
-1. Clone this project
-1. Dowload Composer
+The steps below assume you are working on a Ubuntu machine.
+
+### Apache2 and PHP5
+
+1. Install Apache2
 
     ```bash
+	$ sudo apt-get install -y apache2	
+	```
+1. Enable `mod_rewrite`
+
+	```bash
+	$ sudo a2enmod rewrite
+	$ sudo service apache2 restart
+	```
+
+1. Install PHP5
+
+    ```bash
+    $ sudo apt-get install -y php5 libapache2-mod-php5 php5-cli php5-curl
+    ```
+
+### Application
+
+1. Install Git
+
+	```bash
+	$ sudo apt-get install -y git
+	```
+
+1. Clone this project
+
+	```bash
+	$ git clone https://github.com/pemiluAPI/pemiluAPI.git
+	```
+
+1. Go to the project directory and dowload Composer
+
+    ```bash
+    $ cd pemiluAPI
     $ wget http://getcomposer.org/composer.phar
     ```
 1. Install the framework's dependencies
 
     ```bash
-    $ php composer.phar install
+    $ php composer.phar install        
     ```
+1. Set the `web` directory as the `DocumentRoot`. Modify the `/etc/apache2/sites-available/default` file as follow
+
+	```
+	DocumentRoot /var/www/pemiluAPI/web
+	<Directory /var/www/pemiluAPI/web>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride all
+        Order allow,deny
+        allow from all
+    </Directory>
+	```
+	
+	Please note that your modification need may vary depending on your Apache2 setup.
+
+1. Restart Apache2
+
+	```bash
+	$ sudo service apache2 restart
+	```
+
+1. Open up http://127.0.0.1/status and you should see message 
+
+	```
+	Whoops, looks like something went wrong.
+	```
+
+1. Open up http://127.0.0.1 and you should see
+
+	```
+	{"error":{"message":"Unrecognized request URL (GET: \/).  Please see http:\/\/docs.pemiluapi.org\/.","type":"invalid_request_error"}}
+	```
