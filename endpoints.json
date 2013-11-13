@@ -1,22 +1,10 @@
 {
     "endpoints": {
-        "pemilu-news": {
-            "name": "Pemilu News",
-            "desc": "Latest updates news related to Pemilu",
-            "docs": "http://docs.pemilunews.apiary.io/",
-            "base": "http://pemilu-news.herokuapp.com"
-        },
-        "randomizer": {
-            "name": "Randomizer",
-            "desc": "This endpoint allows you generate random integers.",
-            "docs": "http://example.com",
-            "base": "http://api.example.com"
-        },
-        "lorem-ipsum": {
-            "name": "Lorem Ipsum",
-            "desc": "This endpoint allows you generate the Lorem Ipsum text.",
-            "docs": "http://example.com",
-            "base": "http://api.example.com"
+        "candidate": {
+            "name": "Candidate API v2",
+            "desc": "The Candidate API is a service that provides information about candidates running for office in the 2014 Indonesian elections.",
+            "docs": "http://docs.candidateapiv2.apiary.io/",
+            "base": "http://calon-api.stagingapps.net/"
         }
     }
 }
