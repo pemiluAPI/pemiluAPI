@@ -11,7 +11,7 @@ The steps below assume you are working on a Ubuntu machine.
 1. Install Apache2
 
     ```bash
-	$ sudo apt-get install -y apache2	
+	$ sudo apt-get install -y apache2
 	```
 1. Enable `mod_rewrite`
 
@@ -49,7 +49,7 @@ The steps below assume you are working on a Ubuntu machine.
 1. Install the framework's dependencies
 
     ```bash
-    $ php composer.phar install        
+    $ php composer.phar install
     ```
 1. Set the `web` directory as the `DocumentRoot`. Modify the `/etc/apache2/sites-available/default` file as follow
 
@@ -62,7 +62,7 @@ The steps below assume you are working on a Ubuntu machine.
         allow from all
     </Directory>
 	```
-	
+
 	Please note that your modification need may vary depending on your Apache2 setup.
 
 1. Restart Apache2
@@ -71,10 +71,10 @@ The steps below assume you are working on a Ubuntu machine.
 	$ sudo service apache2 restart
 	```
 
-1. Open up http://127.0.0.1/status and you should see message 
+1. Open up http://127.0.0.1/status and you should see message
 
 	```
-	Whoops, looks like something went wrong.
+	{"error":{"type":"invalid_request_error"}}
 	```
 
 1. Open up http://127.0.0.1 and you should see
