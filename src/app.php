@@ -53,10 +53,14 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
             return $app->json($output, 401);
         }
 
+        // Dispatch all query string
+        parse_str($request->getQueryString(), $queryString);
+
         // Set the API server base
         $client = new Client($attributes['base'], array(
             'request.options' => array(
-                'exceptions' => false
+                'exceptions' => false,
+                'query' => $queryString
             )
         ));
 
