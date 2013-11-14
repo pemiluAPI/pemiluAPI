@@ -110,7 +110,7 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
 
         return $app->json($output, $statusCode);
 
-    })->method('GET|POST');// Only match GET or POST
+    })->method('GET|POST')->value('id', null);// Only match GET or POST
 
 endforeach; // eo Define endpoint routes
 
