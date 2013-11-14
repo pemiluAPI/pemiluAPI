@@ -30,7 +30,7 @@ $endpoints = json_decode(file_get_contents(__DIR__.'/../endpoints.json'), true);
 // Define endpoint routes
 foreach ($endpoints['endpoints'] as $slug => $attributes):
 
-    $app->match('/'.$slug.'/api/{resource}', function (Request $request, $resource) use ($app, $attributes, $config) {
+    $app->match('/'.$slug.'/api/{resource}/{id}', function (Request $request, $resource, $id) use ($app, $attributes, $config) {
         // Try authenticate apiKey
         $client = new Client($config['host'], array(
             'request.options' => array(
@@ -67,7 +67,7 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         // Call the endpoint
         $client = $client->createRequest(
             $request->getMethod(), // method
-            '/api/' . $resource, // uri
+            '/api/' . $resource . '/' . $id, // uri
             array('Content-Type' => 'application/x-www-form-urlencoded'), // headers
             $request->getContent() // body
         );
