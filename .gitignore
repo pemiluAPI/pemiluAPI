@@ -5,8 +5,4 @@ composer.lock
 /tests/report
 
 # Ignores capistrano files
-Capfile
-Gemfile
-Gemfile.lock
 /config/deploy
-/config/deploy.rb
