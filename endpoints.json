@@ -4,7 +4,7 @@
             "name": "Candidate API v2",
             "desc": "The Candidate API is a service that provides information about candidates running for office in the 2014 Indonesian elections.",
             "docs": "http://docs.candidateapiv2.apiary.io/",
-            "base": "http://calon-api.stagingapps.net/"
+            "base": "http://api.pemiluapi.org/calon/"
         }
     }
 }
