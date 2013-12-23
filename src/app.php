@@ -67,7 +67,7 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         // Call the endpoint
         $client = $client->createRequest(
             $request->getMethod(), // method
-            '/api/' . $resource . '/' . $id, // uri
+            $attributes['base'] . '/api/' . $resource . '/' . $id, // uri
             array('Content-Type' => 'application/x-www-form-urlencoded'), // headers
             $request->getContent() // body
         );
