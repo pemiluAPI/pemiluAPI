@@ -13,7 +13,7 @@ $app = new Silex\Application();
 $app->get('/', function () use ($app) {
     $output = array(
         'error' => array(
-            'message' => 'Unrecognized request URL (GET: /).  Please see http://docs.pemiluapi.org/.',
+            'message' => 'Unrecognized request URL (GET: /).  Please see http://developer.pemiluapi.org/.',
             'type' => 'invalid_request_error'
         )
     );

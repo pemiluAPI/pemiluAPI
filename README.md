@@ -80,5 +80,5 @@ The steps below assume you are working on a Ubuntu machine.
 1. Open up http://127.0.0.1 and you should see
 
 	```
-	{"error":{"message":"Unrecognized request URL (GET: \/).  Please see http:\/\/docs.pemiluapi.org\/.","type":"invalid_request_error"}}
+	{"error":{"message":"Unrecognized request URL (GET: \/).  Please see http:\/\/developer.pemiluapi.org\/.","type":"invalid_request_error"}}
 	```
