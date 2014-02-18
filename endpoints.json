@@ -1,10 +1,10 @@
 {
     "endpoints": {
         "candidate": {
-            "name": "Candidate API v2",
+            "name": "Candidate API",
             "desc": "The Candidate API is a service that provides information about candidates running for office in the 2014 Indonesian elections.",
-            "docs": "http://docs.candidateapiv2.apiary.io/",
-            "base": "http://api.pemiluapi.org/calon"
+            "docs": "http://docs.candidateapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/candidate/api/"
         }
     }
 }
