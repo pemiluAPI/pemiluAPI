@@ -5,6 +5,36 @@
             "desc": "The Candidate API is a service that provides information about candidates running for office in the 2014 Indonesian elections.",
             "docs": "http://docs.candidateapi.apiary.io/",
             "base": "http://api.pemiluapi.org/calon"
+        },
+        "pertanyaan": {
+            "name": "Pertanyaan API v1",
+            "desc": "The Question API is a service that provides information about rules and regulations API in the 2014 Indonesian elections.",
+            "docs": "http://docs.peraturanapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/pertanyaan_endpoint"
+        },
+        "geographic": {
+            "name": "Geographic API v1",
+            "desc": "The Geographic API is a service that provides information about geographic boundaries relevant to Indonesian elections and civic government.",
+            "docs": "http://docs.geographicapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/geographic_endpoint"
+        },
+        "pendidikan": {
+            "name": "Pendidikan API v1",
+            "desc": "The Pendidikan API is a service that provides information about the Indonesian elections.",
+            "docs": "http://docs.pendidikanapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/pendidikan_endpoint"
+        },
+        "incumbent": {
+            "name": "Incumbent API v1",
+            "desc": "The Incumbent API is a service that provides information about members of DPR and DPD",
+            "docs": "http://docs.incumbentapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/incumbent_endpoint"
+        },
+        "berita": {
+            "name": "Berita API v1",
+            "desc": "Berita seputar Pemilu",
+            "docs": "http://docs.beritaapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/berita"
         }
     }
 }

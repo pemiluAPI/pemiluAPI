@@ -102,9 +102,16 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 );
                 break;
             default:
-                $output = array(
-                    'data' => $response->json()
-                );
+                $results = $response->json();
+                if ($results['type'] == "Topology")
+                {
+                    $output = $results;
+                }
+                else {
+                    $output = array(
+                        'data' => $results
+                    );
+                }
                 break;
          };
 
