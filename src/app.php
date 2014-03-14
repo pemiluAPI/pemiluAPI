@@ -102,8 +102,9 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 );
                 break;
             default:
+                $uri = $_SERVER['REQUEST_URI'];
                 $results = $response->json();
-                if ($results['type'] == "Topology")
+                if (strpos($uri, "getmap") !== false)
                 {
                     $output = $results;
                 }
