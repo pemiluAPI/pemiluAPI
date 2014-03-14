@@ -17,8 +17,9 @@ $app->get('/', function () use ($app) {
             'type' => 'invalid_request_error'
         )
     );
-
-    return $app->json($output, 404);
+    
+    $json = $app->json($output, 404);
+    return get_content($json); 
 });
 
 // Read configuration
@@ -49,8 +50,9 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                     'type' => 'invalid_request_error'
                 )
             );
-
-            return $app->json($output, 401);
+            
+            $json = $app->json($output, 401);
+            return get_content($json); 
         }
 
         // Dispatch all query string
@@ -115,12 +117,18 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 }
                 break;
          };
-
-        return $app->json($output, $statusCode);
+        $json = $app->json($output, $statusCode);
+        return get_content($json); 
 
     })->method('GET|POST')->value('id', null);// Only match GET or POST
 
 endforeach; // eo Define endpoint routes
+
+function get_content($json){
+  header('Content-Length: '.strlen($json));  
+  return $json;
+}
+
 
 $app->mount('/endpoints', include 'controllers/endpoints.php');
 $app->mount('/status', include 'controllers/status.php');
