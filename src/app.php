@@ -18,8 +18,10 @@ $app->get('/', function () use ($app) {
         )
     );
     
-    $json = $app->json($output, 404);
-    return get_content($json); 
+    //$json = $app->json($output, 404);
+    //return get_content($json); 
+
+    return $app->json($output, 404);
 });
 
 // Read configuration
@@ -51,8 +53,9 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 )
             );
             
-            $json = $app->json($output, 401);
-            return get_content($json); 
+            //$json = $app->json($output, 401);
+            //return get_content($json); 
+            return $app->json($output, 401);
         }
 
         // Dispatch all query string
@@ -117,8 +120,9 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 }
                 break;
          };
-        $json = $app->json($output, $statusCode);
-        return get_content($json); 
+        //$json = $app->json($output, $statusCode);
+        //return get_content($json); 
+        return $app->json($output, $statusCode);
 
     })->method('GET|POST')->value('id', null);// Only match GET or POST
 
