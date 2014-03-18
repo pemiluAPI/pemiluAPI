@@ -1,9 +1,22 @@
 <?php
 
 use Silex\WebTestCase;
+use VCR\VCR;
 
 class EndpointsTest extends WebTestCase
 {
+    public function turnOnVCR()
+    {
+        VCR::turnOn();
+        VCR::insertCassette('pemilu-news');
+    }
+
+    public function turnOffVCR()
+    {
+        VCR::eject();
+        VCR::turnOff();
+    }
+
     public function createApplication()
     {
         $app = require __DIR__ . '/../src/app.php';
@@ -16,6 +29,7 @@ class EndpointsTest extends WebTestCase
     // Testing the Endpoint interaction
     public function testListLinks()
     {
+        $this->turnOnVCR();
         $client = $this->createClient();
         $client->followRedirects();
         $client->request('GET', 'pemilu-news/api/links', array('apiKey' => '06ec082d057daa3d310b27483cc3962e'));
@@ -23,26 +37,8 @@ class EndpointsTest extends WebTestCase
         $content = json_decode($response->getContent());
 
         $this->assertEquals($response->getStatusCode(), 200);
+        $this->turnOffVCR();
     }
-
-    public function testSaveLink()
-    {
-        $client = $this->createClient();
-        $client->followRedirects();
-        $client->request(
-            'POST',
-            'pemilu-news/api/links',
-            array('apiKey' => '06ec082d057daa3d310b27483cc3962e'),
-            array(),
-            array('CONTENT_TYPE' => 'application/x-www-form-urlencoded'),
-            'title=Save a link&url=http://example.com'
-        );
-        $response = $client->getResponse();
-        $content = json_decode($response->getContent());
-
-        $this->assertEquals($response->getStatusCode(), 201);
-    }
-    // eo Testing the Endpoint interaction
 
     public function testListAvailableEndpoints()
     {
@@ -81,7 +77,7 @@ class EndpointsTest extends WebTestCase
 
     public function testExceptionReturn()
     {
-        // GET /pemilu-news/api/foo?{apiKey}
+        $this->turnOnVCR();
         $client = $this->createClient();
         $client->followRedirects();
         $client->request('GET', 'pemilu-news/api/foo', array('apiKey' => '06ec082d057daa3d310b27483cc3962e'));
@@ -90,10 +86,12 @@ class EndpointsTest extends WebTestCase
 
         $this->assertEquals($response->getStatusCode(), 500);
         $this->assertEquals($content->error->type, 'connection_timed_out');
+        $this->turnOffVCR();
     }
 
     public function testInvalidApiKey()
     {
+        $this->turnOnVCR();
         // GET /endpoints/{slug}/?{apiKey}
         $client = $this->createClient();
         $client->followRedirects();
@@ -139,5 +137,6 @@ class EndpointsTest extends WebTestCase
         $content = json_decode($response->getContent());
 
         $this->assertEquals($response->getStatusCode(), 401);
+        $this->turnOffVCR();
     }
 }
