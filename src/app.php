@@ -113,8 +113,8 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 );
                 break;
             default:
-                $uri = $_SERVER['REQUEST_URI'];
                 $results = $response->json();
+                $uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : null;
                 if (strpos($uri, "getmap") !== false)
                 {
                     $output = $results;
