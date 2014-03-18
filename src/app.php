@@ -18,10 +18,9 @@ $app->get('/', function () use ($app) {
         )
     );
     
-    //$json = $app->json($output, 404);
-    //return get_content($json); 
-
-    return $app->json($output, 404);
+    $length = strlen((string)  json_encode($output, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT));
+    $header = array('Content-Length' => $length);
+    return $app->json($output, 404, $header);
 });
 
 // Read configuration
@@ -53,9 +52,9 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 )
             );
             
-            //$json = $app->json($output, 401);
-            //return get_content($json); 
-            return $app->json($output, 401);
+            $length = strlen((string)  json_encode($output, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT));
+            $header = array('Content-Length' => $length);
+            return $app->json($output, 401, $header );
         }
 
         // Dispatch all query string
@@ -120,19 +119,14 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 }
                 break;
          };
-        //$json = $app->json($output, $statusCode);
-        //return get_content($json); 
-        return $app->json($output, $statusCode);
-
+     
+        $length = strlen((string)  json_encode($output, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT));
+        $header = array('Content-Length' => $length);
+        return $app->json($output, $statusCode, $header);
+        
     })->method('GET|POST')->value('id', null);// Only match GET or POST
 
 endforeach; // eo Define endpoint routes
-
-function get_content($json){
-  header('Content-Length: '.strlen($json));  
-  return $json;
-}
-
 
 $app->mount('/endpoints', include 'controllers/endpoints.php');
 $app->mount('/status', include 'controllers/status.php');
