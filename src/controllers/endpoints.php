@@ -23,8 +23,8 @@ $endpointsController->get('/', function (Request $request) use ($app, $config, $
                     'type' => 'invalid_request_error'
                 )
             );
-            $header = getContentHeader($output);
-            return $app->json($output, 401, $header);
+
+            return $app->json($output, 401);
             break;
 
         case 200:
@@ -34,9 +34,8 @@ $endpointsController->get('/', function (Request $request) use ($app, $config, $
                 'count' => count($endpoints),
                 'data' => $endpoints
             );
-            
-            $header = getContentHeader($output);
-            return $app->json($output, 200, $header);
+
+            return $app->json($output, 200);
             break;
      };
 
@@ -60,8 +59,8 @@ $endpointsController->get('/{slug}', function (Request $request, $slug) use ($ap
                     'type' => 'invalid_request_error'
                 )
             );
-            $header = getContentHeader($output);
-            return $app->json($output, 401, $header );
+
+            return $app->json($output, 401);
             break;
 
         case 200:
@@ -78,8 +77,8 @@ $endpointsController->get('/{slug}', function (Request $request, $slug) use ($ap
                 $statusCode = 200;
                 $output = array('data' => $endpoint);
             }
-            $header = getContentHeader($output);
-            return $app->json($output, $statusCode, $header);
+
+            return $app->json($output, $statusCode);
             break;
      };
 });

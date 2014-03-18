@@ -2,6 +2,7 @@
 
 use Guzzle\Http\Client;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Debug\ExceptionHandler;
 
 // Convert errors to exceptions
@@ -10,6 +11,15 @@ ExceptionHandler::register(false);
 
 $app = new Silex\Application();
 
+$app->after(function (Request $request, response $response) {
+    $headers = $response->headers;
+
+    // Add Content-Length to response headers
+    if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {
+        $headers->set('Content-Length', strlen($response->getContent()));
+    }
+});
+
 $app->get('/', function () use ($app) {
     $output = array(
         'error' => array(
@@ -17,16 +27,16 @@ $app->get('/', function () use ($app) {
             'type' => 'invalid_request_error'
         )
     );
-    
-    $header = getContentHeader($output);
-    return $app->json($output, 404, $header);
+
+    return $app->json($output, 404);
 });
 
 // Read configuration
 $config = json_decode(file_get_contents(__DIR__.'/../pemiluapi.json'), true);
 
 // Load available endpoints
-$endpoints = json_decode(file_get_contents(__DIR__.'/../endpoints.json'), true);
+$file = getenv('env') == 'test' ? 'endpoints.test.json' : 'endpoints.json';
+$endpoints = json_decode(file_get_contents(__DIR__.'/../'.$file), true);
 
 // Define endpoint routes
 foreach ($endpoints['endpoints'] as $slug => $attributes):
@@ -50,9 +60,8 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                     'type' => 'invalid_request_error'
                 )
             );
-            
-            $header = getContentHeader($output);
-            return $app->json($output, 401, $header );
+
+            return $app->json($output, 401);
         }
 
         // Dispatch all query string
@@ -117,20 +126,12 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
                 }
                 break;
          };
-         
-        $header = getContentHeader($output);
-        return $app->json($output, $statusCode, $header);
-        
+
+        return $app->json($output, $statusCode);
+
     })->method('GET|POST')->value('id', null);// Only match GET or POST
 
 endforeach; // eo Define endpoint routes
-
-function getContentHeader($output = array()){
-  $length = strlen((string)  json_encode($output, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT));
-  $header = array('Content-Length' => $length);
-  return $header;
-}
-
 
 $app->mount('/endpoints', include 'controllers/endpoints.php');
 $app->mount('/status', include 'controllers/status.php');

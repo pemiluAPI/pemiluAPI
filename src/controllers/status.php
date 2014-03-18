@@ -23,8 +23,8 @@ $statusController->get('/', function (Request $request) use ($app, $config) {
                     'type' => 'invalid_request_error'
                 )
             );
-            $header = getContentHeader($output);
-            return $app->json($output, 401, $header);
+
+            return $app->json($output, 401);
             break;
 
         case 200:
@@ -43,8 +43,8 @@ $statusController->get('/', function (Request $request) use ($app, $config) {
                     'applicationName' => $response['data']['title']
                 )
             );
-            $header = getContentHeader($output);
-            return $app->json($output, 200, $header);
+
+            return $app->json($output, 200);
             break;
      } ;
 });

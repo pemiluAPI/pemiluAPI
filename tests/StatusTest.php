@@ -21,6 +21,7 @@ class StatusTest extends WebTestCase
         $response = $client->getResponse();
         $content = json_decode($response->getContent());
 
+        $this->assertTrue($response->headers->contains('Content-Length', strlen($response->getContent())));
         $this->assertEquals($response->getStatusCode(), 200);
         $this->assertEquals($content->data->pemiluAPIVersion, 1);
         $this->assertEquals($content->data->applicationName, 'PemiluAPI Developer');
