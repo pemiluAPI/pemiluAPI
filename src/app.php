@@ -69,10 +69,11 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         ));
 
         // Call the endpoint
+        $head = apache_request_headers();
         $client = $client->createRequest(
             $request->getMethod(), // method
             $attributes['base'] . '/api/' . $resource . '/' . $id, // uri
-            array('Content-Type' => 'application/x-www-form-urlencoded'), // headers
+            array('Content-Type' => 'application/x-www-form-urlencoded', 'Accept-Version' => $head["Accept-Version"]), // headers
             $request->getContent() // body
         );
 
