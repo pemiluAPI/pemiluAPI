@@ -1,0 +1,10 @@
+{
+    "endpoints": {
+        "pemilu-news": {
+            "name": "Pemilu News",
+            "desc": "News seputar Pemilu",
+            "docs": "http://docs.pemilunews.apiary.io/",
+            "base": "http://pemilu-news.herokuapp.com"
+        }
+    }
+}

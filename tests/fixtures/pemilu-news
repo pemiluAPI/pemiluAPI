@@ -1,0 +1,86 @@
+
+-
+    request:
+        method: GET
+        url: 'http://developer.pemiluapi.org/api/authenticate?apiKey=06ec082d057daa3d310b27483cc3962e'
+        headers:
+            host: developer.pemiluapi.org
+            user-agent: 'Guzzle/3.8.1 curl/7.21.4 PHP/5.3.28'
+            content-length: 0
+    response:
+        status: 200
+        headers:
+            Date: 'Tue, 18 Mar 2014 09:04:18 GMT'
+            Server: 'Apache/2.2.22 (Ubuntu)'
+            X-Powered-By: PHP/5.3.10-1ubuntu3.10
+            Set-Cookie: 'laravel_session=s0v0urg3ssjmk0pcg7h7s7l2i4; expires=Tue, 18-Mar-2014 11:04:18 GMT; path=/; HttpOnly'
+            Cache-Control: no-cache
+            Transfer-Encoding: chunked
+            Content-Type: application/json
+        body: '{"data":{"message":"ok"}}'
+-
+    request:
+        method: GET
+        url: 'http://pemilu-news.herokuapp.com/api/links/?apiKey=06ec082d057daa3d310b27483cc3962e'
+        headers:
+            host: pemilu-news.herokuapp.com
+            content-type: application/x-www-form-urlencoded
+            user-agent: 'Guzzle/3.8.1 curl/7.21.4 PHP/5.3.28'
+            content-length: 0
+    response:
+        status: 200
+        headers:
+            Cache-Control: 'max-age=0, private, must-revalidate'
+            Content-Type: application/json
+            Date: 'Tue, 18 Mar 2014 09:03:47 GMT'
+            Etag: '"fef3bfa2c8ecac4dd2f3dd8a441f5332"'
+            Status: '200 OK'
+            X-Rack-Cache: miss
+            X-Request-Id: 119e26a9-65ec-4bd6-859b-8df575362635
+            X-Runtime: '0.014778'
+            X-Ua-Compatible: 'IE=Edge,chrome=1'
+            Content-Length: '4324'
+            Connection: keep-alive
+        body: '[{"created_at":"2014-03-18T06:57:05Z","id":41,"title":"Save a link","updated_at":"2014-03-18T06:57:05Z","url":"http://example.com"},{"created_at":"2014-03-18T06:57:46Z","id":42,"title":"Save a link","updated_at":"2014-03-18T06:57:46Z","url":"http://example.com"},{"created_at":"2014-03-18T06:58:00Z","id":43,"title":"Save a link","updated_at":"2014-03-18T06:58:00Z","url":"http://example.com"},{"created_at":"2014-03-18T07:05:17Z","id":44,"title":"Save a link","updated_at":"2014-03-18T07:05:17Z","url":"http://example.com"},{"created_at":"2013-10-10T04:57:57Z","id":11,"title":"Save a link","updated_at":"2013-10-10T04:57:57Z","url":"http://example.com"},{"created_at":"2013-10-10T05:00:11Z","id":12,"title":"Save a link","updated_at":"2013-10-10T05:00:11Z","url":"http://example.com"},{"created_at":"2013-10-10T05:03:39Z","id":13,"title":"Save a link","updated_at":"2013-10-10T05:03:39Z","url":"http://example.com"},{"created_at":"2013-10-10T05:07:59Z","id":14,"title":"Save a link","updated_at":"2013-10-10T05:07:59Z","url":"http://example.com"},{"created_at":"2013-10-10T05:11:08Z","id":15,"title":"Save a link","updated_at":"2013-10-10T05:11:08Z","url":"http://example.com"},{"created_at":"2013-10-10T05:13:05Z","id":16,"title":"Save a link","updated_at":"2013-10-10T05:13:05Z","url":"http://example.com"},{"created_at":"2013-10-10T05:50:30Z","id":17,"title":"Save a link","updated_at":"2013-10-10T05:50:30Z","url":"http://example.com"},{"created_at":"2013-10-10T05:52:34Z","id":18,"title":"Save a link","updated_at":"2013-10-10T05:52:34Z","url":"http://example.com"},{"created_at":"2013-10-10T05:54:53Z","id":19,"title":"Save a link","updated_at":"2013-10-10T05:54:53Z","url":"http://example.com"},{"created_at":"2013-10-10T06:03:55Z","id":20,"title":"Save a link","updated_at":"2013-10-10T06:03:55Z","url":"http://example.com"},{"created_at":"2013-10-10T06:06:16Z","id":21,"title":"Save a link","updated_at":"2013-10-10T06:06:16Z","url":"http://example.com"},{"created_at":"2013-10-10T06:14:56Z","id":22,"title":"Save a link","updated_at":"2013-10-10T06:14:56Z","url":"http://example.com"},{"created_at":"2013-10-10T06:15:36Z","id":23,"title":"Save a link","updated_at":"2013-10-10T06:15:36Z","url":"http://example.com"},{"created_at":"2013-10-10T06:16:53Z","id":24,"title":"Save a link","updated_at":"2013-10-10T06:16:53Z","url":"http://example.com"},{"created_at":"2013-10-10T06:19:25Z","id":25,"title":"Save a link","updated_at":"2013-10-10T06:19:25Z","url":"http://example.com"},{"created_at":"2013-10-10T06:19:40Z","id":26,"title":"Save a link","updated_at":"2013-10-10T06:19:40Z","url":"http://example.com"},{"created_at":"2013-10-10T06:21:45Z","id":27,"title":"Save a link","updated_at":"2013-10-10T06:21:45Z","url":"http://example.com"},{"created_at":"2013-10-10T06:35:55Z","id":28,"title":"Save a link","updated_at":"2013-10-10T06:35:55Z","url":"http://example.com"},{"created_at":"2013-10-10T06:58:14Z","id":29,"title":"Save a link","updated_at":"2013-10-10T06:58:14Z","url":"http://example.com"},{"created_at":"2013-10-10T07:01:45Z","id":30,"title":"Save a link","updated_at":"2013-10-10T07:01:45Z","url":"http://example.com"},{"created_at":"2013-10-10T07:02:11Z","id":31,"title":"Save a link","updated_at":"2013-10-10T07:02:11Z","url":"http://example.com"},{"created_at":"2013-10-10T07:02:52Z","id":32,"title":"Save a link","updated_at":"2013-10-10T07:02:52Z","url":"http://example.com"},{"created_at":"2013-10-10T07:05:26Z","id":33,"title":"Save a link","updated_at":"2013-10-10T07:05:26Z","url":"http://example.com"},{"created_at":"2013-10-10T07:07:05Z","id":34,"title":"Save a link","updated_at":"2013-10-10T07:07:05Z","url":"http://example.com"},{"created_at":"2013-10-10T07:08:13Z","id":35,"title":"Save a link","updated_at":"2013-10-10T07:08:13Z","url":"http://example.com"},{"created_at":"2013-10-10T07:08:46Z","id":36,"title":"Save a link","updated_at":"2013-10-10T07:08:46Z","url":"http://example.com"},{"created_at":"2013-10-10T07:25:16Z","id":37,"title":"Save a link","updated_at":"2013-10-10T07:25:16Z","url":"http://example.com"},{"created_at":"2013-10-10T07:26:32Z","id":38,"title":"Save a link","updated_at":"2013-10-10T07:26:32Z","url":"http://example.com"},{"created_at":"2013-10-10T07:29:52Z","id":39,"title":"Save a link","updated_at":"2013-10-10T07:29:52Z","url":"http://example.com"}]'
+-
+    request:
+        method: GET
+        url: 'http://pemilu-news.herokuapp.com/api/foo/?apiKey=06ec082d057daa3d310b27483cc3962e'
+        headers:
+            host: pemilu-news.herokuapp.com
+            content-type: application/x-www-form-urlencoded
+            user-agent: 'Guzzle/3.8.1 curl/7.21.4 PHP/5.3.28'
+            content-length: 0
+    response:
+        status: 500
+        headers:
+            Cache-Control: no-cache
+            Content-Type: application/json
+            Date: 'Tue, 18 Mar 2014 09:03:52 GMT'
+            Status: '500 Internal Server Error'
+            X-Rack-Cache: miss
+            X-Request-Id: 9de6f9d3-e3ae-41ad-91bb-6579f1bb4807
+            X-Runtime: '0.003148'
+            X-Ua-Compatible: 'IE=Edge,chrome=1'
+            Content-Length: '28'
+            Connection: keep-alive
+        body: '{"error":"Unexpected error"}'
+-
+    request:
+        method: GET
+        url: 'http://developer.pemiluapi.org/api/authenticate?apiKey=insertinvalidkeyhere'
+        headers:
+            host: developer.pemiluapi.org
+            user-agent: 'Guzzle/3.8.1 curl/7.21.4 PHP/5.3.28'
+            content-length: 0
+    response:
+        status: 401
+        headers:
+            Date: 'Tue, 18 Mar 2014 09:05:49 GMT'
+            Server: 'Apache/2.2.22 (Ubuntu)'
+            X-Powered-By: PHP/5.3.10-1ubuntu3.10
+            Set-Cookie: 'laravel_session=r4a66agtq8gbvlvqe5q4ech3n7; expires=Tue, 18-Mar-2014 11:05:49 GMT; path=/; HttpOnly'
+            Cache-Control: no-cache
+            Transfer-Encoding: chunked
+            Content-Type: application/json
+        body: '{"error":{"type":"invalid_request_error"}}'

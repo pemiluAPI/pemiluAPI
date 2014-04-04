@@ -35,7 +35,7 @@ $endpointsController->get('/', function (Request $request) use ($app, $config, $
                 'data' => $endpoints
             );
 
-            return $app->json($output);
+            return $app->json($output, 200);
             break;
      };
 
@@ -64,7 +64,7 @@ $endpointsController->get('/{slug}', function (Request $request, $slug) use ($ap
             break;
 
         case 200:
-            $endpoint = $endpoints['endpoints'][$slug];
+            $endpoint = isset($endpoints['endpoints'][$slug]) ? $endpoints['endpoints'][$slug] : null;
 
             if (empty($endpoint)) {
                 $statusCode = 404;

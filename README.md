@@ -1,5 +1,7 @@
 # pemiluAPI
 
+[![Build Status](https://travis-ci.org/pemiluAPI/pemiluAPI.png?branch=master)](https://travis-ci.org/pemiluAPI/pemiluAPI)
+
 2014 Pemilu API
 
 ## Installation
