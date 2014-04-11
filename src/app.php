@@ -80,7 +80,7 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         $client = $client->createRequest(
             $request->getMethod(), // method
             $attributes['base'] . '/api/' . $resource . '/' . $id, // uri
-            array('Content-Type' => 'application/x-www-form-urlencoded', 'Accept-Version' => (isset($head["Accept-Version"])) ? $head["Accept-Version"] : null), // headers
+            (isset($head["Accept-Version"])) ? array('Content-Type' => 'application/x-www-form-urlencoded', 'Accept-Version' => $head["Accept-Version"]) : array('Content-Type' => 'application/x-www-form-urlencoded'), // headers
             $request->getContent() // body
         );
 
