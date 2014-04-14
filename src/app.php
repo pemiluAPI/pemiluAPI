@@ -76,7 +76,11 @@ foreach ($endpoints['endpoints'] as $slug => $attributes):
         ));
 
         // Call the endpoint
-        $head = apache_request_headers();
+        $head = array();
+        if (function_exists("apache_request_headers"))
+        {
+            $head = apache_request_headers();
+        }
         $client = $client->createRequest(
             $request->getMethod(), // method
             $attributes['base'] . '/api/' . $resource . '/' . $id, // uri
