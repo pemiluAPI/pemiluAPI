@@ -27,7 +27,13 @@ The steps below assume you are working on a Ubuntu machine.
     ```bash
     $ sudo apt-get install -y php5 libapache2-mod-php5 php5-cli php5-curl
     ```
-
+    
+    *For Ubuntu Saucy or above (>= 13.10), also install the following package:*
+    
+    ```bash
+    $ sudo apt-get install php5-json
+    ```
+    
 ### Application
 
 1. Install Git
