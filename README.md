@@ -15,13 +15,13 @@ The steps below assume you are working on a Ubuntu machine.
     ```bash
 	$ sudo apt-get install -y apache2
 	```
-1. Enable `mod_rewrite`
+1. Enable `mod_rewrite` and `mod_headers`
 
 	```bash
 	$ sudo a2enmod rewrite
+	$ sudo a2enmod headers
 	$ sudo service apache2 restart
 	```
-
 1. Install PHP5
 
     ```bash
