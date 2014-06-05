@@ -1,5 +1,41 @@
 {
     "endpoints": {
+        "laporan_dana_kampanye": {
+            "name": "Campaign Finance Report API",
+            "desc": "The Campaign Finance Report API is a service that provides information about campaign finance reports in the 2014 Indonesian elections.",
+            "docs": "http://docs.laporandanakampanyeapi.apiary.io/",
+            "base": "xxx"
+        },
+        "faq_presiden": {
+            "name": "FAQ Presiden API",
+            "desc": "The FAQ Presiden API is a service that provides answers to questions about rules and regulations affecting the 2014 Indonesian Presidential elections.",
+            "docs": "http://docs.faqpresiden.apiary.io/",
+            "base": "xxx"
+        },
+        "calon_presiden": {
+            "name": "Presidential Candidate API",
+            "desc": "The Presidential Candidate API is a service that provides information about candidates running for president and vice-president in the 2014 Indonesian elections.",
+            "docs": "http://docs.calonpresidenapi.apiary.io/",
+            "base": "xxx"
+        },
+        "laporan_pelanggaran": {
+            "name": "Laporan Pelanggaran API",
+            "desc": "The Laporan Pelanggaran API is a service that provides election violation reports.",
+            "docs": "http://docs.electionviolationreportapi.apiary.io/",
+            "base": "xxx"
+        },
+        "socmedpemilu": {
+            "name": "Social Analytics API",
+            "desc": "Social Analytics API is a service that provides social media information from president candidates in the 2014 Indonesian President Elections.",
+            "docs": "http://docs.socmedpemilu.apiary.io/",
+            "base": "xxx"
+        },
+        "stamps": {
+            "name": "Stamps API",
+            "desc": "The Stamps API is a service that provides links to election-related stamps and banners that can be overlaid on photographs.",
+            "docs": "http://docs.stampsapi.apiary.io/",
+            "base": "xxx"
+        },
         "candidate": {
             "name": "Candidate API",
             "desc": "The Candidate API is a service that provides information about candidates running for office in the 2014 Indonesian elections.",
@@ -23,12 +59,6 @@
             "desc": "The Pendidikan API is a service that provides information about the Indonesian elections.",
             "docs": "http://docs.pendidikanapi.apiary.io/",
             "base": "http://api.pemiluapi.org/pendidikan_endpoint"
-        },
-        "incumbent": {
-            "name": "Incumbent API v1",
-            "desc": "The Incumbent API is a service that provides information about members of DPR and DPD",
-            "docs": "http://docs.incumbentapi.apiary.io/",
-            "base": "http://api.pemiluapi.org/incumbent_endpoint"
         },
         "berita": {
             "name": "Berita API v1",
