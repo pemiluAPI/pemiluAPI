@@ -1,28 +1,10 @@
 {
     "endpoints": {
-        "campaignfinance": {
-            "name": "Campaign Finance Report API",
-            "desc": "The Campaign Finance Report API is a service that provides information about campaign finance reports in the 2014 Indonesian elections.",
-            "docs": "http://docs.laporandanakampanyeapi.apiary.io/",
-            "base": "http://api.pemiluapi.org/campaignfinance"
-        },
-        "faq-presiden": {
-            "name": "FAQ Presiden API",
-            "desc": "The FAQ Presiden API is a service that provides answers to questions about rules and regulations affecting the 2014 Indonesian Presidential elections.",
-            "docs": "http://docs.faqpresiden.apiary.io/",
-            "base": "http://api.pemiluapi.org/faq-presiden"
-        },
         "calonpresiden": {
             "name": "Presidential Candidate API",
             "desc": "The Presidential Candidate API is a service that provides information about candidates running for president and vice-president in the 2014 Indonesian elections.",
             "docs": "http://docs.calonpresidenapi.apiary.io/",
             "base": "http://api.pemiluapi.org/calonpresiden"
-        },
-        "laporan_pelanggaran": {
-            "name": "Laporan Pelanggaran API",
-            "desc": "The Laporan Pelanggaran API is a service that provides election violation reports.",
-            "docs": "http://docs.electionviolationreportapi.apiary.io/",
-            "base": "http://api.pemiluapi.org/laporan_pelanggaran"
         },
         "socmedpemilu": {
             "name": "Social Analytics API",
@@ -36,23 +18,41 @@
             "docs": "http://docs.stampsapi.apiary.io/",
             "base": "http://api.pemiluapi.org/stamps"
         },
+        "campaignfinance": {
+            "name": "Campaign Finance Report API",
+            "desc": "The Campaign Finance Report API is a service that provides information about campaign finance reports in the 2014 Indonesian elections.",
+            "docs": "http://docs.laporandanakampanyeapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/campaignfinance"
+        },
+        "laporan_pelanggaran": {
+            "name": "Laporan Pelanggaran API",
+            "desc": "The Laporan Pelanggaran API is a service that provides election violation reports.",
+            "docs": "http://docs.electionviolationreportapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/laporan_pelanggaran"
+        },
         "candidate": {
             "name": "Candidate API",
-            "desc": "The Candidate API is a service that provides information about candidates running for office in the 2014 Indonesian elections.",
+            "desc": "The Candidate API is a service that provides information about legislative candidates who ran for office in the 2014 Indonesian elections, including election results.",
             "docs": "http://docs.candidateapi.apiary.io/",
             "base": "http://api.pemiluapi.org/calon"
-        },
-        "pertanyaan": {
-            "name": "Pertanyaan API v1",
-            "desc": "The Question API is a service that provides information about rules and regulations API in the 2014 Indonesian elections.",
-            "docs": "http://docs.peraturanapi.apiary.io/",
-            "base": "http://api.pemiluapi.org/pertanyaan_endpoint"
         },
         "geographic": {
             "name": "Geographic API v1",
             "desc": "The Geographic API is a service that provides information about geographic boundaries relevant to Indonesian elections and civic government.",
             "docs": "http://docs.geographicapi.apiary.io/",
             "base": "http://api.pemiluapi.org/geographic_endpoint"
+        },
+        "faq-presiden": {
+            "name": "FAQ Presiden API",
+            "desc": "The FAQ Presiden API is a service that provides answers to questions about rules and regulations affecting the 2014 Indonesian Presidential elections.",
+            "docs": "http://docs.faqpresiden.apiary.io/",
+            "base": "http://api.pemiluapi.org/faq-presiden"
+        },
+        "pertanyaan": {
+            "name": "Pertanyaan API v1",
+            "desc": "The Question API is a service that provides information about rules and regulations API in the 2014 Indonesian elections.",
+            "docs": "http://docs.peraturanapi.apiary.io/",
+            "base": "http://api.pemiluapi.org/pertanyaan_endpoint"
         },
         "pendidikan": {
             "name": "Pendidikan API v1",
