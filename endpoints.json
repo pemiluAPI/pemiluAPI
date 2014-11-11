@@ -71,6 +71,12 @@
             "desc": "The Election Results API is a service that provides information about election results from the 2014 Indonesian elections.",
             "docs": "http://docs.electionresultsapi.apiary.io/",
             "base": "http://api.pemiluapi.org/election_result"
+        },
+        "rekap_dpt_dpk": {
+            "name": "Rekap DPT - DPK API v1",
+            "desc": "Rekapitulasi DPT dan DPK Pemilu 2014",
+            "docs": "http://docs.rekapitulasidptdpk.apiary.io/",
+            "base": ""
         }
     }
 }
