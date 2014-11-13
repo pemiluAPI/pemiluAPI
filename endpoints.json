@@ -77,6 +77,12 @@
             "desc": "Rekapitulasi DPT dan DPK Pemilu 2014",
             "docs": "http://docs.rekapitulasidptdpk.apiary.io/",
             "base": ""
+        },
+        "proporsi_kursi_perempuan": {
+            "name": "Proporsi Kursi Perempuan API v1",
+            "desc": "Proporsi kursi perempuan di DPR dan yang lebih besar dari 30 persen di Kabupaten/Kota",
+            "docs": "http://docs.proporsikursiperempuan.apiary.io/",
+            "base": ""
         }
     }
 }
