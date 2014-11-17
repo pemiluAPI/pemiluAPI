@@ -89,6 +89,12 @@
             "desc": "Rekapitulasi hasil pemilihan presiden 2014",
             "docs": "http://docs.rekapitulasipilpres.apiary.io/",
             "base": ""
+        },
+        "track_record_buruk": {
+            "name": "Track Record Buruk API v1",
+            "desc": "Track record buruk anggota DPR",
+            "docs": "http://docs.trackrecordburuk.apiary.io/",
+            "base": ""
         }
     }
 }
