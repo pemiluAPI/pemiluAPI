@@ -83,6 +83,12 @@
             "desc": "Proporsi kursi perempuan di DPR dan yang lebih besar dari 30 persen di Kabupaten/Kota",
             "docs": "http://docs.proporsikursiperempuan.apiary.io/",
             "base": ""
+        },
+        "hasil_pilpres": {
+            "name": "Hasil Pilpres API v1",
+            "desc": "Rekapitulasi hasil pemilihan presiden 2014",
+            "docs": "http://docs.rekapitulasipilpres.apiary.io/",
+            "base": ""
         }
     }
 }
